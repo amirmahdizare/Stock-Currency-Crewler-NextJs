@@ -34,7 +34,7 @@ export const Menu = () => {
                         <IconChevronDown width={15} height={15} className={openedMenus?.[item.link] ? 'rotate-180 transition-all  text-gray-500' : ' transition-all text-gray-500'} />
                     </div>
 
-                    {openedMenus?.[item.link] || !item.innerItems.every(i => item.link.concat(i.link) != pathname) && item.innerItems?.map(l => <Link href={item.link.concat(l.link)} className={'flex flex-row gap-4 items-center pr-4 text-sm hover:text-gray-700 '.concat(item.link.concat(l.link) == pathname ? 'text-red-700 font-semibold' : '')}>{l.title}</Link>)}
+                    {openedMenus?.[item.link]  && item.innerItems?.map(l => <Link href={item.link.concat(l.link)} className={'flex flex-row gap-4 items-center pr-4 text-sm hover:text-gray-700 '.concat(item.link.concat(l.link) == pathname ? 'text-red-700 font-semibold' : '')}>{l.title}</Link>)}
                 </div>
             })}
         </div>

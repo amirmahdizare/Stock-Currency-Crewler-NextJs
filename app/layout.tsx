@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fa" dir='rtl' className='text-[12px] lg:text-[14px]'>
+    <html lang="fa" dir='rtl' className='text-[13px] lg:text-[14px]'>
       <body className={vazir.className.concat(' p-2 ')}>{children}</body>
     </html>
   )
