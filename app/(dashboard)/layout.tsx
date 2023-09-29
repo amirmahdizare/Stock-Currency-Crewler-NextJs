@@ -1,5 +1,6 @@
 import React from 'react'
 import { Profile } from './components'
+import { Menu } from './components/Menu/Menu'
 
 export default function layout() {
     return (
@@ -7,8 +8,12 @@ export default function layout() {
 
             <div className='border-l   flex flex-col '>
                 <Profile />
+
+
                 
                 <div className='flex h-[1px] bg-gray-200 '></div>
+
+                <Menu/>
             </div>
         </div>
     )
