@@ -7,3 +7,13 @@ export interface MenuItemType {
     link: string,
     innerItems?: Array<Omit<MenuItemType, 'icon'>>
 }
+
+export interface PriorityStockItem {
+    symbol:string,
+    pSymbol:string,
+    state:string,
+    symbolPrice:number,
+    pSymbolPrice:number,
+    profitPercent:number,
+    daysToEnd:number,
+}

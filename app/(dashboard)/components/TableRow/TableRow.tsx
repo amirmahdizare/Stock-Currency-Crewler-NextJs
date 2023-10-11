@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 
-export const TableRow = ({ children }: { children: ReactNode }) => {
+export const TableRow = ({ children, className, hoverEffect, ...props }: React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> & { hoverEffect?: boolean }) => {
     return (
-        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <tr className={"bg-white border-b dark:bg-gray-800 dark:border-gray-700 ".concat([className ?? '', hoverEffect ? 'hover:bg-gray-50' : ''].join(' '))} {...props}>
             {children}
         </tr>
     )
