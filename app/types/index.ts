@@ -27,3 +27,11 @@ export interface LotusFutureData {
     daysToEnd: number,
     garrantPrice: number
 }
+
+
+export interface ETCItem {
+    symbol: string,
+    price:number,
+    nav:number
+    profitPercent: number,
+}
