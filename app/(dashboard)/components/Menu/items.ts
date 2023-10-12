@@ -26,7 +26,7 @@ export const menuItems: MenuItemType[] = [
                 title: 'صندوق لوتوس'
             },
             {
-                link: '/xau24',
+                link: '/gold',
                 title: 'شمس طلا 24 عیار'
             }
         ]
