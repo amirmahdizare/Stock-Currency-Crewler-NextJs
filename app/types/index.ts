@@ -31,7 +31,16 @@ export interface LotusFutureData {
 
 export interface ETCItem {
     symbol: string,
-    price:number,
-    nav:number
+    price: number,
+    nav: number
     profitPercent: number,
+}
+
+
+
+export interface CoinItem {
+    symbol: string,
+    price: number,
+    profitPercent: number,
+    profitToman: number
 }
