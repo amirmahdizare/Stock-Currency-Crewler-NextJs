@@ -43,7 +43,7 @@ export default function layout({ children }: { children: ReactNode }) {
                 </div>
             </ClickAwayListener>
 
-            <div className='flex-1 '>
+            <div className='flex-1 p-4'>
                 {children}
             </div>
 
