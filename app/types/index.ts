@@ -9,11 +9,21 @@ export interface MenuItemType {
 }
 
 export interface PriorityStockItem {
-    symbol:string,
-    pSymbol:string,
-    state:string,
-    symbolPrice:number,
-    pSymbolPrice:number,
-    profitPercent:number,
-    daysToEnd:number,
+    symbol: string,
+    pSymbol: string,
+    state: string,
+    symbolPrice: number,
+    pSymbolPrice: number,
+    profitPercent: number,
+    daysToEnd: number,
+}
+
+export interface LotusFutureData {
+    fSymbol: string,
+    price: number,
+    // symbolPrice: number,
+    deadline: string,
+    profitPercent: number,
+    daysToEnd: number,
+    garrantPrice: number
 }
