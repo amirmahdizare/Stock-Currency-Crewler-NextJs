@@ -44,3 +44,10 @@ export interface CoinItem {
     profitPercent: number,
     profitToman: number
 }
+
+export interface CertainIncomeItem {
+    symbol: string,
+    price: number,
+    monthlyProfit:number
+    // profitToman: number
+}
