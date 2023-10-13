@@ -16,6 +16,8 @@ export interface PriorityStockItem {
     pSymbolPrice: number,
     profitPercent: number,
     daysToEnd: number,
+    full_name:string,
+    deadline:string
 }
 
 export interface LotusFutureData {

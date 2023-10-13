@@ -14,10 +14,10 @@ saApi.interceptors.request.use(config => {
     return config;
 });
 
-export const saRequest = <T extends { [key: string]: any },>() => async (params: T) => {
+export const saGetRequest = <T extends { [key: string]: any },>() => async (params: T) => {
 
     try {
-        const { data } = await saApi.get(`${createSearchQuery(params)}`)
+        const { data } = await saApi.get('', { params })
 
         return data
 

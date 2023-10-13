@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
-import { saApi, saRequest } from '../config/api'
+import { saApi, saGetRequest } from '../config/api'
+import { SASymbolListItemType } from '../types'
 
-export const useAllSymbols = () => useQuery('getAllSymbols', () => saApi.get('', { params: { 'all': '', type: 0 } }))
+export const useAllSymbols = () => useQuery<Array<SASymbolListItemType>>('getAllSymbols', () => saGetRequest<{ all: any, type: number }>()({ all: '', type: 0 }))
