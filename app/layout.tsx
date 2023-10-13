@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter, Vazirmatn } from 'next/font/google'
+import { ClientLayout } from './ClientLayout'
 
 const vazir = Vazirmatn({ subsets: ['latin'] })
 
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir='rtl' className='text-[13px] lg:text-[14px]'>
-      <body className={vazir.className.concat(' lg:p-2 ')}>{children}</body>
+      <body className={vazir.className.concat(' lg:p-2 ')}>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
+      </body>
     </html>
   )
 }
