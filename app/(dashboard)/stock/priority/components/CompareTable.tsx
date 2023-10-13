@@ -1,11 +1,18 @@
+'use client'
+
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead } from '@/app/(dashboard)/components'
 import { TableRow } from '@/app/(dashboard)/components/TableRow/TableRow'
 import { data } from './data'
+import { useQuery } from 'react-query'
+import { saRequest } from '@/app/config/api'
+import { useAllSymbols } from '@/app/hooks'
 
 export const CompareTable = () => {
 
+    const { data: symbols } = useAllSymbols()
 
+    console.log(symbols)
     return <Table >
         <TableHead>
             <TableRow className='text-center'>
@@ -27,7 +34,7 @@ export const CompareTable = () => {
                 <TableCell>{item.state}</TableCell>
                 <TableCell>{item.symbolPrice.toLocaleString()}</TableCell>
                 <TableCell>{item.pSymbolPrice.toLocaleString()}</TableCell>
-                <TableCell className={item.profitPercent > 0 ?  'text-green-500 font-bold' : ''}>{item.profitPercent}%</TableCell>
+                <TableCell className={item.profitPercent > 0 ? 'text-green-500 font-bold' : ''}>{item.profitPercent}%</TableCell>
                 <TableCell>{item.daysToEnd} روز</TableCell>
                 <TableCell>کدال</TableCell>
                 <TableCell>TSE</TableCell>
