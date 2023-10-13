@@ -27,7 +27,7 @@ export const CompareTable = () => {
                 <TableCell>تاریخ پایان مهلت استفاده</TableCell>
                 <TableCell>مدت زمان باقی مانده تا پایان مرحله</TableCell>
                 {/* <TableCell>کدال</TableCell> */}
-                <TableCell>TSE</TableCell>
+                {/* <TableCell>TSE</TableCell> */}
             </TableRow>
         </TableHead>
         <TableBody>
@@ -44,8 +44,8 @@ export const CompareTable = () => {
 
                 return <TableRow className='text-center' hoverEffect>
                     <TableCell className='font-bold'>{symbol?.full_name}</TableCell>
-                    <TableCell>{item.symbol}</TableCell>
-                    <TableCell>{item.pSymbol}</TableCell>
+                    <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.symbol)?.instance_code}`} target='_blank'>{item.symbol}</a></TableCell>
+                    <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.pSymbol)?.instance_code}`} target='_blank'>{item.pSymbol}</a></TableCell>
                     {/* <TableCell>{item.state}</TableCell> */}
                     <TableCell>{Number(symbolPrice)?.toLocaleString()}</TableCell>
                     <TableCell>{Number(pSymbolPrice)?.toLocaleString()}</TableCell>
@@ -53,7 +53,7 @@ export const CompareTable = () => {
                     <TableCell>{item?.deadline} </TableCell>
                     <TableCell>{item?.deadline ? Math.ceil(moment(item?.deadline, 'jYYYY/jMM/jDD').diff(moment(), 'day',true)) : '-'} روز</TableCell>
                     {/* <TableCell>کدال</TableCell> */}
-                    <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.symbol)?.instance_code}`} target='_blank'>لینک به TSE</a></TableCell>
+                    {/* <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.symbol)?.instance_code}`} target='_blank'>لینک به TSE</a></TableCell> */}
                 </TableRow>
             })}
         </TableBody>
