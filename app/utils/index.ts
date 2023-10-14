@@ -6,3 +6,5 @@ export const createSearchQuery = (obj: { [key: string]: any }) => {
         }
     return str.join("&");
 }
+
+export const convertToNumber = (price: number | string, toLocale: boolean = true, toToman: boolean = true) => toLocale ? (toToman ? Number(price) / 10 : Number(price)).toLocaleString() : (toToman ? Number(price) / 10 : Number(price))
