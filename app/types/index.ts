@@ -130,3 +130,16 @@ export interface SASymbolListItemType {
     "5_buy_volume": number,
     market_value: number
 }
+
+export interface SACurrencyItemType {
+    slug: string,
+    name: string,
+    price: number,
+    change: number,
+    change_percent: number,
+    min_price: number,
+    max_price: number,
+    last_update: string,
+    jalali_last_update: string,
+    ts: number
+}
