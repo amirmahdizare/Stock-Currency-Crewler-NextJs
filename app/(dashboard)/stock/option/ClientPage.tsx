@@ -38,7 +38,7 @@ export const ClientPage = () => {
 
           <span className='font-bold text-blue-800'>{selectedSymbol?.name}</span>
           <span>({selectedSymbol?.full_name})</span>
-          <span>{convertToNumber(selectedSymbol?.final_price ?? 0, true, false)} تومان</span>
+          <span>{convertToNumber(selectedSymbol?.final_price ?? 0, true, false)}</span>
           {/* <span dir='ltr'>تومان {convertToNumber(selectedSymbol?.final_price_change ?? 0, true, false)} </span> */}
 
 
@@ -50,6 +50,7 @@ export const ClientPage = () => {
             <CompareTable
               data={symbols?.filter(item => item.full_name.includes(selectedSymbol?.name ?? '') &&item.full_name.includes('اخت') && item.full_name.includes('خ')) ?? []}
               baseSymbol={selectedSymbol}
+              type='buy'
             />
 
 
@@ -60,6 +61,7 @@ export const ClientPage = () => {
             <CompareTable
               data={symbols?.filter(item => item.full_name.includes(selectedSymbol?.name ?? '')&&item.full_name.includes('اخت') && item.full_name.includes('ف')) ?? []}
               baseSymbol={selectedSymbol}
+              type='sell'
             />
           </div>
 
