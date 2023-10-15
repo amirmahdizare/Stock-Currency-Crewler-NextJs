@@ -62,7 +62,7 @@ export const CompareTable = ({ data , baseSymbol}: { data: Array<SASymbolListIte
                         <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${item.instance_code}`} target='_blank'>{item.name}</a></TableCell>
                         {/* <TableCell>{item.state}</TableCell> */}
                         <TableCell>{Number(item.final_price)?.toLocaleString()}</TableCell>
-                        {/* <TableCell>{Number(pSymbolPrice)?.toLocaleString()}</TableCell> */}
+                        <TableCell>{item.full_name.split('-')[2]}</TableCell>
                         {/* <TableCell className={profitPercent > 0 ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>{(symbolPrice && pSymbolPrice) ? Number(profitPercent).toFixed(2) : '-'}%</TableCell>
                         <TableCell>{item?.deadline} </TableCell>
                         <TableCell>{item?.deadline ? elepsedDays : '-'} روز</TableCell>
