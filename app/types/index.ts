@@ -147,10 +147,12 @@ export interface SACurrencyItemType {
 export interface FutureItemType {
     symbol: string,
     yesterdaySettle: number,
-    lastTradedPrice: number,
+    lastTradedPrice?: number,
     change: number,
     changePercent: number,
     volume: number,
     value: number,
-    op: number
+    op: number,
+    title?:string,
+    deadline?:string
 }

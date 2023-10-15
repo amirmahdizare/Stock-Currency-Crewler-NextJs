@@ -11,13 +11,13 @@ export async function GET(req: NextRequest) {
 
     console.log(req)
 
-    const url = new URL(req.url)
+    // const url = new URL(req.url)
 
-    let symbol = url.searchParams.get('symbol')
-    console.log(symbol)
+    // let symbol = url.searchParams.get('symbol')
+    // console.log(symbol)
 
-    if (!symbol)
-        return NextResponse.json('Symbol Not Provided')
+    // if (!symbol)
+    //     return NextResponse.json('Symbol Not Provided')
 
     try {
 
@@ -59,7 +59,7 @@ export async function GET(req: NextRequest) {
             if (!target) return undefined
 
             // return [...Array.from(target?.querySelectorAll('td')).map(x => x.innerText), ...Array.from(target?.querySelectorAll('th')).map(x => x.innerText)]
-        }, symbol) as Array<Array<string>>
+        }) as Array<Array<string>>
 
         console.log(items)
 
