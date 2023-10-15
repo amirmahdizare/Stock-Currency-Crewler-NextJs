@@ -28,7 +28,7 @@ export const menuItems: MenuItemType[] = [
         link: '/future',
         innerItems: [
             {
-                link: '/lotus',
+                link: '/lotus-etc',
                 title: 'صندوق لوتوس'
             },
             {
