@@ -13,6 +13,7 @@
     "axios": "^1.5.1",
     "jalali-moment": "^3.3.11",
     "next": "latest",
+    "puppeteer": "^20.7.4",
     "react": "latest",
     "react-click-away-listener": "^2.2.3",
     "react-dom": "latest",
