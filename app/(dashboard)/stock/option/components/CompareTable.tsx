@@ -42,14 +42,16 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
 
 
 
-    if (data.length == 0)
+    if (data
+        .filter(item =>Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) >0)
+        .length == 0)
         return <span className='text-center text-gray-400'>موردی موجود نیست</span>
 
     return <Table >
         <TableHead>
             <TableRow className='text-center'>
-                <TableCell>نماد</TableCell>
-                <TableCell>نام اختیار</TableCell>
+                <TableCell>نام کامل</TableCell>
+                <TableCell >نماد</TableCell>
                 <TableCell>قیمت</TableCell>
                 <TableCell>قیمت اعمال</TableCell>
                 <TableCell>تاریخ قرارداد</TableCell>
@@ -65,11 +67,12 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
             {data
                 .sort((a, b) => profit(a) > profit(b) ? -1 : 1
                 )
+                .filter(item =>Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) >0)
                 .map(item => {
 
 
                     return <TableRow className='text-center' hoverEffect>
-                        <TableCell className='font-bold'>{item?.full_name}</TableCell>
+                        <TableCell className='font-bold whitespace-nowrap'>{item?.full_name}</TableCell>
                         <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${item.instance_code}`} target='_blank'>{item.name}</a></TableCell>
                         {/* <TableCell>{item.state}</TableCell> */}
                         <TableCell>{Number(item.final_price)?.toLocaleString()}</TableCell>

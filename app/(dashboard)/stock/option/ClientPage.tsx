@@ -19,7 +19,7 @@ export const ClientPage = () => {
     && inner.industry == '-') != -1
 
   return (
-    <div className='flex flex-col gap-4 items-stretch'>
+    <div className='flex flex-col gap-4 items-stretch '>
       <span className='font-bold text-lg border-b pb-2'>آربیتراژ بازار اختیار معامله</span>
       <div className='flex flex-row gap-4 w- full overflow-auto whitespace-nowrap'>
 
@@ -31,20 +31,28 @@ export const ClientPage = () => {
 
 
 
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 gap-4 '>
 
         {!!selectedSymbol && <div className='col-span-2 flex flex-row gap-4 border-y py-4'>
 
           <a className='text-blue-800 font-bold' href={`http://www.tsetmc.com/instInfo/${selectedSymbol.instance_code}`} target='_blank'>{selectedSymbol?.name}</a>
-          <span>({selectedSymbol?.full_name})</span>
-          <span>{convertToNumber(selectedSymbol?.final_price ?? 0, true, false)}</span>
-          {/* <span dir='ltr'>تومان {convertToNumber(selectedSymbol?.final_price_change ?? 0, true, false)} </span> */}
-
+          <span>( {selectedSymbol?.full_name} )</span>
+          <span >قیمت : <strong>{convertToNumber(selectedSymbol?.final_price ?? 0, true, false)}</strong></span>
+          <div className='flex flex-row gap-2'>
+            <span>تغییر:</span>
+            <span
+              dir='ltr'
+              className={selectedSymbol.final_price_change > 0 ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>
+              ({selectedSymbol.final_price_change_percent}%)
+              &nbsp;
+              {convertToNumber(selectedSymbol.final_price_change, true, false)}
+            </span>
+          </div>
 
         </div>}
         {!!selectedSymbol && <>
 
-          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2'>
+          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2 overflow-auto'>
             <span className='font-bold  pb-2 '>اختیار خرید</span>
             <CompareTable
               data={symbols?.filter(item => item.full_name.includes(` ${selectedSymbol?.name}` ?? '') && item.full_name.includes('اخت') && item.full_name.includes('خ') && item.full_name.split('-').length == 3) ?? []}
@@ -55,7 +63,7 @@ export const ClientPage = () => {
 
           </div>
 
-          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2'>
+          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2 overflow-auto'>
             <span className='font-bold pb-2 '>اختیار فروش</span>
             <CompareTable
               data={symbols?.filter(item => item.full_name.includes(` ${selectedSymbol?.name}` ?? '') && item.full_name.includes('اخت') && item.full_name.includes('ف') && item.full_name.split('-').length == 3) ?? []}
