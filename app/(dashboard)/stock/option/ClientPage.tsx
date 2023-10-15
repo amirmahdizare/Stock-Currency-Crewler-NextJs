@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-// import { CompareTable } from './components/CompareTable'
-import { useAllCurrencies, useAllSymbols } from '@/app/hooks'
+import { useAllSymbols } from '@/app/hooks'
 import { convertToNumber } from '@/app/utils'
 import { SASymbolListItemType } from '@/app/types'
 import { CompareTable } from './components/CompareTable'
@@ -14,7 +13,7 @@ export const ClientPage = () => {
 
 
   const filterOfOption = (item: SASymbolListItemType, index: number, array: SASymbolListItemType[]) => array.findIndex(inner =>
-    inner.full_name.includes(item.name)
+    inner.full_name.includes(` ${item.name}`)
     && inner.full_name.includes('اخت')
     && inner.market == '-'
     && inner.industry == '-') != -1
@@ -36,7 +35,7 @@ export const ClientPage = () => {
 
         {!!selectedSymbol && <div className='col-span-2 flex flex-row gap-4 border-y py-4'>
 
-          <span className='font-bold text-blue-800'>{selectedSymbol?.name}</span>
+          <a className='text-blue-800 font-bold' href={`http://www.tsetmc.com/instInfo/${selectedSymbol.instance_code}`} target='_blank'>{selectedSymbol?.name}</a>
           <span>({selectedSymbol?.full_name})</span>
           <span>{convertToNumber(selectedSymbol?.final_price ?? 0, true, false)}</span>
           {/* <span dir='ltr'>تومان {convertToNumber(selectedSymbol?.final_price_change ?? 0, true, false)} </span> */}
@@ -45,10 +44,10 @@ export const ClientPage = () => {
         </div>}
         {!!selectedSymbol && <>
 
-          <div className='col-span-2 lg:col-span-1 border rounded-lg p-2'>
-            <span className='font-bold  pb-2 my-2'>اختیار خرید</span>
+          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2'>
+            <span className='font-bold  pb-2 '>اختیار خرید</span>
             <CompareTable
-              data={symbols?.filter(item => item.full_name.includes(selectedSymbol?.name ?? '') &&item.full_name.includes('اخت') && item.full_name.includes('خ')) ?? []}
+              data={symbols?.filter(item => item.full_name.includes(` ${selectedSymbol?.name}` ?? '') && item.full_name.includes('اخت') && item.full_name.includes('خ') && item.full_name.split('-').length == 3) ?? []}
               baseSymbol={selectedSymbol}
               type='buy'
             />
@@ -56,10 +55,10 @@ export const ClientPage = () => {
 
           </div>
 
-          <div className='col-span-2 lg:col-span-1 border rounded-lg p-2'>
-            <span className='font-bold pb-2 my-2'>اختیار فروش</span>
+          <div className='col-span-2 lg:col-span-1 border rounded-lg p-4 flex flex-col gap-2'>
+            <span className='font-bold pb-2 '>اختیار فروش</span>
             <CompareTable
-              data={symbols?.filter(item => item.full_name.includes(selectedSymbol?.name ?? '')&&item.full_name.includes('اخت') && item.full_name.includes('ف')) ?? []}
+              data={symbols?.filter(item => item.full_name.includes(` ${selectedSymbol?.name}` ?? '') && item.full_name.includes('اخت') && item.full_name.includes('ف') && item.full_name.split('-').length == 3) ?? []}
               baseSymbol={selectedSymbol}
               type='sell'
             />

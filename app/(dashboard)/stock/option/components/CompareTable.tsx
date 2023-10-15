@@ -10,7 +10,7 @@ import { useAllSymbols } from '@/app/hooks'
 import moment from 'jalali-moment'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { SASymbolListItemType } from '@/app/types'
-import { convertToNumber } from '@/app/utils'
+import { convertToMoment, convertToNumber } from '@/app/utils'
 
 export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolListItemType>, baseSymbol: SASymbolListItemType, type: 'sell' | 'buy' }) => {
 
@@ -32,9 +32,9 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
 
     const profit = (item: SASymbolListItemType) => {
         let profit = 0
-        if (type == 'buy') profit = (1-((Number(item.full_name.split('-')[1]) + Number(item.final_price)) / Number(baseSymbol.final_price)) ) *100
+        if (type == 'buy') profit = (1 - ((Number(item.full_name.split('-')[1]) + Number(item.final_price)) / Number(baseSymbol.final_price))) * 100
 
-        else profit = (1-(Number(baseSymbol.final_price) + Number(item.final_price)) / Number(item.full_name.split('-')[1]) ) *100
+        else profit = (1 - (Number(baseSymbol.final_price) + Number(item.final_price)) / Number(item.full_name.split('-')[1])) * 100
         console.log(Number(baseSymbol.final_price) + Number(item.final_price) / Number(item.full_name.split('-')[1]))
 
         return profit
@@ -42,8 +42,8 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
 
 
 
-
-
+    if (data.length == 0)
+        return <span className='text-center text-gray-400'>موردی موجود نیست</span>
 
     return <Table >
         <TableHead>
@@ -55,36 +55,18 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
                 <TableCell>تاریخ قرارداد</TableCell>
                 <TableCell>وضعیت</TableCell>
                 <TableCell>سود اربیتراژ</TableCell>
+                <TableCell>مدت زمان باقی مانده تا پایان قرارداد</TableCell>
                 {/* <TableCell>سود درصد</TableCell> */}
-                {/*   <TableCell>مدت زمان باقی مانده تا پایان مرحله</TableCell>
-                <TableCell>برتر به سود بانکی 22%</TableCell>
+                {/*<TableCell>برتر به سود بانکی 22%</TableCell>
                 <TableCell>برتر به بالاترین سود صندوق درامد ثابت 24%</TableCell> */}
             </TableRow>
         </TableHead>
         <TableBody>
             {data
-                // .sort((a, b) => {
-                //     const aSymbolPrice = symbols?.find(s => s.name == a.symbol)?.final_price ?? 0
-                //     const aPSymbolPrice = symbols?.find(s => s.name == a.pSymbol)?.final_price ?? 0
-
-
-                //     const bSymbolPrice = symbols?.find(s => s.name == b.symbol)?.final_price ?? 0
-                //     const bPSymbolPrice = symbols?.find(s => s.name == b.pSymbol)?.final_price ?? 0
-
-                //     return ((Number(aSymbolPrice) / (Number(aPSymbolPrice) + 1000)) - 1) > ((Number(bSymbolPrice) / (Number(bPSymbolPrice) + 1000)) - 1) ? -1 : 1
-                // })
+                .sort((a, b) => profit(a) > profit(b) ? -1 : 1
+                )
                 .map(item => {
 
-                    // const symbolPrice = symbols?.find(s => s.name == item.symbol)?.final_price ?? 0
-                    // const pSymbolPrice = symbols?.find(s => s.name == item.pSymbol)?.final_price ?? 0
-
-                    // const symbol = symbols?.find(s => s.name == item.symbol)
-
-                    // const profitPercent = ((Number(symbolPrice) / (Number(pSymbolPrice) + 1000)) - 1) * 100
-
-                    // const elepsedDays = Math.ceil(moment(item?.deadline, 'jYYYY/jMM/jDD').diff(moment(), 'day', true))
-
-                    // console.log(moment(item?.deadline ?? '', 'jYYYY/jMM/jDD'))
 
                     return <TableRow className='text-center' hoverEffect>
                         <TableCell className='font-bold'>{item?.full_name}</TableCell>
@@ -95,8 +77,8 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
                         <TableCell>{item.full_name.split('-')[2]}</TableCell>
                         <TableCell><RenderState item={item} /></TableCell>
                         <TableCell dir='ltr' className={profit(item) > 0 ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>{profit(item).toFixed(2)}%</TableCell>
-                        {/* <TableCell>{item?.deadline} </TableCell>
-                        <TableCell>{item?.deadline ? elepsedDays : '-'} روز</TableCell>
+                        <TableCell>{Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true))} </TableCell>
+                        {/* {/*    <TableCell>{item?.deadline ? elepsedDays : '-'} روز</TableCell>
                         <TableCell className='align-middle text-center'>{(profitPercent / elepsedDays) > (22 / elepsedDays) ? <IconCheck color='green' /> : <IconX color='red' />}</TableCell>
                         <TableCell className='align-middle text-center'>{(profitPercent / elepsedDays) > (24 / elepsedDays) ? <IconCheck color='green' /> : <IconX color='red' />}</TableCell> */}
                         {/* <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.symbol)?.instance_code}`} target='_blank'>لینک به TSE</a></TableCell> */}
