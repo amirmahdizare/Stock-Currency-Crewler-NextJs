@@ -16,8 +16,8 @@ export interface PriorityStockItem {
     pSymbolPrice: number,
     profitPercent: number,
     daysToEnd: number,
-    full_name:string,
-    deadline:string
+    full_name: string,
+    deadline: string
 }
 
 export interface LotusFutureData {
@@ -142,4 +142,15 @@ export interface SACurrencyItemType {
     last_update: string,
     jalali_last_update: string,
     ts: number
+}
+
+export interface FutureItemType {
+    symbol: string,
+    yesterdaySettle: number,
+    lastTradedPrice: number,
+    change: number,
+    changePercent: number,
+    volume: number,
+    value: number,
+    op: number
 }

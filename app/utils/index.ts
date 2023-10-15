@@ -27,3 +27,12 @@ export const convertToMoment = (st: string) => {
     else
         return moment()
 }
+
+
+export const genNumber = (str: string, percent?: boolean): number => {
+
+    try {
+        return Number(Array.from(str.matchAll(/\d+/g)).join('')) * (str.includes('-') ? -1 : 1) / (percent ? 100 : 1)
+    }
+    catch (e) { return 0 }
+}
