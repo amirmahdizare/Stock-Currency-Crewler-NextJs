@@ -20,7 +20,7 @@ export const CompareTable = () => {
                 <TableCell>گواهی</TableCell>
                 <TableCell>نماد</TableCell>
                 <TableCell>قیمت </TableCell>
-                <TableCell>سود تومان آربیتراژ با بازار آزاد</TableCell>
+                <TableCell>سود (تومان) آربیتراژ با بازار آزاد</TableCell>
 
             </TableRow>
         </TableHead>
@@ -32,10 +32,10 @@ export const CompareTable = () => {
                     const diff = coin?.price ? coin?.price - item['1_sell_price'] * 100 : 0
                     return <TableRow className='text-center' hoverEffect>
                         <TableCell>{item.full_name}</TableCell>
-                        <TableCell><a className='text-blue-800 hover:bg-blue-900' href={`http://www.tsetmc.com/instInfo/${item.instance_code}`} target='_blank'>{item.name}</a></TableCell>
+                        <TableCell><a className='text-blue-800 hover:text-orange-900' href={`http://www.tsetmc.com/instInfo/${item.instance_code}`} target='_blank'>{item.name}</a></TableCell>
                         <TableCell>{convertToNumber(item['1_sell_price'] * 100)}</TableCell>
-                        <TableCell className={'text-orange-800 font-bold'}>
-                            {diff > 0 ? <IconPlus /> : <IconMinus />}
+                        <TableCell className={'text-blue-700 font-bold'}>
+                            {/* {diff > 0 ? <IconPlus /> : <IconMinus />} */}
                             {convertToNumber(Math.abs(diff))}
                             &nbsp;
                             {diff > 0 ? 'پایین تر از بازار' : 'بالاتر از بازار'}
