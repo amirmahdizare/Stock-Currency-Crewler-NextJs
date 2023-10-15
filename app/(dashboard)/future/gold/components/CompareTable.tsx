@@ -17,7 +17,7 @@ export const CompareTable = () => {
 
     const tala24 = allCurrency?.data.find(item => item.slug == 'TALA_24')
 
-    const profit = (item:FutureItemType) => ( 1- (Number(tala24?.price) / (item.lastTradedPrice ?? item.yesterdaySettle) )) *100
+    const profit = (item:FutureItemType) => ( 1- (Number(tala24?.price) / (item.lastTradedPrice ?? item.yesterdaySettle) )) *100 -0.5
 
     return <Table className='border rounded-xl '>
         <TableHead>

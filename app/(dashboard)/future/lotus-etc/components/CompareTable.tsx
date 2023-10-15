@@ -17,7 +17,7 @@ export const CompareTable = () => {
 
     const lotus = symbols?.find(item => item.name == 'طلا')
 
-    const profit = (item: FutureItemType) => (1 - (Number(lotus?.final_price) / (item.lastTradedPrice ?? item.yesterdaySettle))) * 100
+    const profit = (item: FutureItemType) => (1 - (Number(lotus?.final_price) / (item.lastTradedPrice ?? item.yesterdaySettle))) * 100 - 0.5
 
 
     return <Table className='border rounded-xl '>
