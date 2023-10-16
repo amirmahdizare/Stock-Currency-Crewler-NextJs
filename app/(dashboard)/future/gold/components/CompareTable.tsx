@@ -39,7 +39,7 @@ export const CompareTable = () => {
                 <TableCell>{intialFutureData.find(d => d.symbol == item.symbol)?.title}</TableCell>
                 <TableCell>{item.symbol}</TableCell>
                 <TableCell>{convertToNumber((item?.lastTradedPrice ?? item?.yesterdaySettle) * 10, true, true)}</TableCell>
-                <TableCell className={profit(item) > 0 ?  'text-green-500 font-bold' : ' text-red-500 font-bold'}>{profit(item).toFixed(2)}%</TableCell>
+                <TableCell className={profit(item) > 0 ?  'text-green-500 font-bold' : ' text-red-500 font-bold'}>{ (item.lastTradedPrice ?? item.yesterdaySettle) ?  profit(item).toFixed(2): '-'}%</TableCell>
                <TableCell>{intialFutureData.find(d => d.symbol == item.symbol)?.deadline}</TableCell> 
                 <TableCell>{Math.ceil(moment(intialFutureData.find(d => d.symbol == item.symbol)?.deadline, 'jYYYY/jMM/jDD').diff(moment(), 'day', true))}</TableCell>
                 {/* <TableCell>{item.daysToEnd} روز</TableCell> */}
