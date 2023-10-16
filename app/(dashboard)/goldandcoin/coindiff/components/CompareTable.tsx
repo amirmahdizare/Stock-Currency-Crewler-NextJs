@@ -13,7 +13,8 @@ export const CompareTable = () => {
 
     const coin = currencies?.data.find(item => item.name == 'سکه امامی')
 
-
+    if (!Array.isArray(data))
+        return <></>
     return <Table className='border rounded-xl '>
         <TableHead>
             <TableRow className='text-center'>

@@ -4,12 +4,13 @@ import { useAllSymbols } from '@/app/hooks'
 import { convertToNumber } from '@/app/utils'
 import { SASymbolListItemType } from '@/app/types'
 import { CompareTable } from './components/CompareTable'
+import { Header } from '../../components'
 
 export const ClientPage = () => {
 
   const [selectedSymbol, setSelectedSymbols] = useState<SASymbolListItemType | undefined>()
 
-  const { data: symbols } = useAllSymbols()
+  const { data: symbols , dataUpdatedAt , isFetching } = useAllSymbols()
 
 
   const filterOfOption = (item: SASymbolListItemType, index: number, array: SASymbolListItemType[]) => array.findIndex(inner =>
@@ -20,7 +21,14 @@ export const ClientPage = () => {
 
   return (
     <div className='flex flex-col gap-4 items-stretch '>
-      <span className='font-bold text-lg border-b pb-2'>آربیتراژ بازار اختیار معامله</span>
+
+      <Header
+        dataUpdatedAt={dataUpdatedAt}
+        isFetching={isFetching}
+        title='آربیتراژ بازار اختیار معامله'
+      />
+
+      <span className='font-bold text-lg border-b pb-2'></span>
       <div className='flex flex-row gap-4 w- full overflow-auto whitespace-nowrap'>
 
 

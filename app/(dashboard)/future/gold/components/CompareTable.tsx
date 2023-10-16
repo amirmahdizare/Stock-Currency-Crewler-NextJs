@@ -19,6 +19,10 @@ export const CompareTable = () => {
 
     const profit = (item:FutureItemType) => ( 1- (Number(tala24?.price) / (item.lastTradedPrice ?? item.yesterdaySettle) )) *100 -0.5
 
+
+    if (!Array.isArray(data))
+    return <></>
+    
     return <Table className='border rounded-xl '>
         <TableHead>
             <TableRow className='text-center'>
