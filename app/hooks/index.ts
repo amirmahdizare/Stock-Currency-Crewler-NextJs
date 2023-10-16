@@ -5,8 +5,8 @@ import { FutureItemType, SACurrencyItemType, SASymbolListItemType } from '../typ
 export const useAllSymbols = () => useQuery<Array<SASymbolListItemType>>('getAllSymbols', () => saGetRequest<{ all: any, type: number }>()({ all: '', type: 2 }),
     {
         refetchOnWindowFocus: false,
-        staleTime: 1000 * 60 * 10,
-        refetchInterval: false
+        staleTime: 1000 * 60 * 1,
+        // refetchInterval: false
     })
 
 export const useAllCurrencies = () => useQuery<{ data: Array<SACurrencyItemType> }>('getAllCurrencies', () => saGetRequest<{ currency: string }>()({ currency: '' }),

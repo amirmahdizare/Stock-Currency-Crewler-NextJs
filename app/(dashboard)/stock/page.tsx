@@ -7,6 +7,6 @@ export const metadata: Metadata = {
 
 export default function page() {
     return (
-        <div>page</div>
+        <div>سهام</div>
     )
 }

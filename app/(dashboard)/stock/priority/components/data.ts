@@ -22,16 +22,6 @@ export const data:Partial<PriorityStockItem> [] =[
         deadline:'1402/08/06'
     },
     {
-        symbol:'کصدف',
-        pSymbol:'کصدفح',
-        pSymbolPrice:0,
-        symbolPrice:0,
-        profitPercent:0,
-        daysToEnd:1,
-        state:'حراج',
-        deadline:'1402/07/24'
-    },
-    {
         symbol:'تماوند',
         pSymbol:'تماوندح',
         pSymbolPrice:0,
