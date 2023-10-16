@@ -11,7 +11,6 @@ export const Menu = () => {
 
     const pathname = usePathname()
 
-    console.log(pathname)
 
     return (
         <div className='flex flex-col gap-8 items-start py-4'>

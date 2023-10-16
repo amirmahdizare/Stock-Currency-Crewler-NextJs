@@ -30,7 +30,6 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
         if (type == 'buy') profit = (1 - ((Number(item.full_name.split('-')[1]) + Number(item.final_price)) / Number(baseSymbol.final_price))) * 100
 
         else profit = (1 - (Number(baseSymbol.final_price) + Number(item.final_price)) / Number(item.full_name.split('-')[1])) * 100
-        console.log(Number(baseSymbol.final_price) + Number(item.final_price) / Number(item.full_name.split('-')[1]))
 
         return profit
     }

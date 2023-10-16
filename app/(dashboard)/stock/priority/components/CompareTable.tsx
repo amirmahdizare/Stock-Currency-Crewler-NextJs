@@ -53,7 +53,6 @@ export const CompareTable = () => {
 
                     const elepsedDays = Math.ceil(moment(item?.deadline, 'jYYYY/jMM/jDD').diff(moment(), 'day', true))
 
-                    console.log(moment(item?.deadline ?? '', 'jYYYY/jMM/jDD'))
 
                     return <TableRow className='text-center' hoverEffect>
                         <TableCell className='font-bold'>{symbol?.full_name}</TableCell>

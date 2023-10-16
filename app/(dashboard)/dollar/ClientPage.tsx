@@ -7,7 +7,6 @@ export const ClientPage = () => {
 
     const { data } = useAllCurrencies()
 
-    console.log(data)
     if (!data) return <></>
 
 

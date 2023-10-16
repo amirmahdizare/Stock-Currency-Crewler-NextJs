@@ -53,8 +53,6 @@ export async function GET(req: NextRequest) {
             // return [...Array.from(target?.querySelectorAll('td')).map(x => x.innerText), ...Array.from(target?.querySelectorAll('th')).map(x => x.innerText)]
         }) as Array<Array<string>>
 
-        console.log(items)
-
 
 
         // page.screenshot({ path: 'new.png', fullPage: true })

@@ -8,12 +8,10 @@ import { genNumber } from '@/app/utils'
 
 export async function GET(req: NextRequest) {
 
-    console.log(req)
 
     const url = new URL(req.url)
 
     let symbol = url.searchParams.get('symbol')
-    console.log(symbol)
 
     if (!symbol)
         return NextResponse.json('Symbol Not Provided')

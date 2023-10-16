@@ -14,7 +14,6 @@ export const convertToNumber = (price: number | string, toLocale: boolean = true
 
 
 export const convertToMoment = (st: string) => {
-    console.log(st)
 
     if (typeof st != 'string') return moment()
     if (st.length == 10)
