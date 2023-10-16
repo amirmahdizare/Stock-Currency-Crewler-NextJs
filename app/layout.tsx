@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir='rtl' className='text-[13px] lg:text-[14px]'>
-      <body className={vazir.className.concat(' lg:p-2 ')}>
+      <body className={vazir.className.concat(' lg:p-2  mt-8 lg:mt-0')}>
         <ClientLayout>
           {children}
         </ClientLayout>
