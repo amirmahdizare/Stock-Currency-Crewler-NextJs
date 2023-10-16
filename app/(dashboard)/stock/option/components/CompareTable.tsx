@@ -3,12 +3,7 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead } from '@/app/(dashboard)/components'
 import { TableRow } from '@/app/(dashboard)/components/TableRow/TableRow'
-import { data } from './data'
-import { useQuery } from 'react-query'
-// import { saRequest } from '@/app/config/api'
-import { useAllSymbols } from '@/app/hooks'
 import moment from 'jalali-moment'
-import { IconCheck, IconX } from '@tabler/icons-react'
 import { SASymbolListItemType } from '@/app/types'
 import { convertToMoment, convertToNumber } from '@/app/utils'
 
@@ -81,10 +76,6 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
                         <TableCell><RenderState item={item} /></TableCell>
                         <TableCell dir='ltr' className={profit(item) > 0 ? 'text-green-500 font-bold' : 'text-red-500 font-bold'}>{profit(item).toFixed(2)}%</TableCell>
                         <TableCell>{Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true))} </TableCell>
-                        {/* {/*    <TableCell>{item?.deadline ? elepsedDays : '-'} روز</TableCell>
-                        <TableCell className='align-middle text-center'>{(profitPercent / elepsedDays) > (22 / elepsedDays) ? <IconCheck color='green' /> : <IconX color='red' />}</TableCell>
-                        <TableCell className='align-middle text-center'>{(profitPercent / elepsedDays) > (24 / elepsedDays) ? <IconCheck color='green' /> : <IconX color='red' />}</TableCell> */}
-                        {/* <TableCell><a className='text-blue-800' href={`http://www.tsetmc.com/instInfo/${symbols?.find(s => s.name == item.symbol)?.instance_code}`} target='_blank'>لینک به TSE</a></TableCell> */}
                     </TableRow>
                 })}
         </TableBody>

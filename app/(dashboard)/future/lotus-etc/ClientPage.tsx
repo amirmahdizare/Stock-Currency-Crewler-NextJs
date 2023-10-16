@@ -14,10 +14,10 @@ export const ClientPage = () => {
   return (
     <div className='flex flex-col gap-4 items-stretch'>
 
-      <span className='font-bold text-lg border-b pb-2'>آربیتراژ طلای 24 عیار آتی بورس کالا</span>
+      <span className='font-bold text-lg border-b pb-2'>آربیتراژ صندوق طلای لوتوس بورس کالا</span>
 
       <div className='flex flex-row gap-2'>
-        <span>قیمت هرواحد شمش طلا:</span>
+        <span>قیمت هرواحد طلای لوتوس:</span>
 
         <span className='font-bold'>{convertToNumber(lotus?.final_price ?? 0, true, false)}</span>
 

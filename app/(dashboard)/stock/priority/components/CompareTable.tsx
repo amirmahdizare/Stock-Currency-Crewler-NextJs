@@ -4,8 +4,6 @@ import React from 'react'
 import { Table, TableBody, TableCell, TableHead } from '@/app/(dashboard)/components'
 import { TableRow } from '@/app/(dashboard)/components/TableRow/TableRow'
 import { data } from './data'
-import { useQuery } from 'react-query'
-// import { saRequest } from '@/app/config/api'
 import { useAllSymbols } from '@/app/hooks'
 import moment from 'jalali-moment'
 import { IconCheck, IconX } from '@tabler/icons-react'
@@ -21,7 +19,6 @@ export const CompareTable = () => {
                 <TableCell>نام سهم</TableCell>
                 <TableCell>نماد</TableCell>
                 <TableCell>نماد حق تقدم</TableCell>
-                {/* <TableCell>وضعیت</TableCell> */}
                 <TableCell>قیمت نماد پایه</TableCell>
                 <TableCell>قیمت حق تقدم</TableCell>
                 <TableCell>سود درصد</TableCell>

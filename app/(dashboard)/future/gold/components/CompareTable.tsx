@@ -28,7 +28,6 @@ export const CompareTable = () => {
                 <TableCell>سود درصد</TableCell>
                 <TableCell>سررسید</TableCell> 
               <TableCell>مدت زمان باقی مانده تا سررسید</TableCell>
-                {/* <TableCell>وجه تضمین</TableCell> */}
             </TableRow>
         </TableHead>
         <TableBody>
