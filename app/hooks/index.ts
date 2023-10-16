@@ -6,14 +6,15 @@ export const useAllSymbols = () => useQuery<Array<SASymbolListItemType>>('getAll
     {
         refetchOnWindowFocus: false,
         staleTime: 1000 * 60 * 1,
-        // refetchInterval: false
+        refetchInterval: 1000 * 60 * 1
     })
 
 export const useAllCurrencies = () => useQuery<{ data: Array<SACurrencyItemType> }>('getAllCurrencies', () => saGetRequest<{ currency: string }>()({ currency: '' }),
     {
         refetchOnWindowFocus: false,
         staleTime: 1000 * 60 * 10,
-        refetchInterval: false
+        refetchInterval: 1000 * 60 * 1
+
     })
 
 
@@ -29,5 +30,5 @@ export const useFutureSymbols = () => useQuery<Array<FutureItemType>>('getFuture
     {
         refetchOnWindowFocus: false,
         staleTime: 1000 * 60 * 10,
-        refetchInterval: false
+        refetchInterval: 1000 * 60 * 1
     })

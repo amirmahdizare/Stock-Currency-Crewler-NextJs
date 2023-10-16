@@ -35,10 +35,11 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
         return profit
     }
 
-
+    if (!Array.isArray(data))
+        return <></>
 
     if (data
-        .filter(item =>Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) >0)
+        .filter(item => Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) > 0)
         .length == 0)
         return <span className='text-center text-gray-400'>موردی موجود نیست</span>
 
@@ -62,7 +63,7 @@ export const CompareTable = ({ data, baseSymbol, type }: { data: Array<SASymbolL
             {data
                 .sort((a, b) => profit(a) > profit(b) ? -1 : 1
                 )
-                .filter(item =>Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) >0)
+                .filter(item => Math.ceil(convertToMoment(item.full_name.split('-')[2]).diff(moment(), 'day', true)) > 0)
                 .map(item => {
 
 

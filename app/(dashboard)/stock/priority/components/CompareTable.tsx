@@ -12,6 +12,8 @@ export const CompareTable = () => {
 
     const { data: symbols } = useAllSymbols()
 
+    if (!Array.isArray(data))
+        return <></>
 
     return <Table >
         <TableHead>
