@@ -22,4 +22,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
-It is Next Js Appliaction That Collect Stock And Currency Data From Diffrent Sources And Show Them As A Web App
+It is A Next Js Appliaction That Collect Stock And Currency Data From Diffrent Sources And Show Them As A Web App
